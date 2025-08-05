@@ -1,13 +1,16 @@
+
 let todoList = [
   {
     item: 'Buy Milk',
-    dueDate: '4/10/2023'
+    dueDate: '2025-4-26'
   },
   {
     item: 'Go to College',
-    dueDate: '4/10/2023'
+    dueDate: '2025-9-3'
   }
 ];
+let savedList = JSON.parse(localStorage.getItem('todoList'));
+     todoList = savedList || [];
 
 displayItems();
 
@@ -17,6 +20,7 @@ function addTodo() {
   let todoItem = inputElement.value;
   let todoDate = dateElement.value;
   todoList.push({item: todoItem, dueDate: todoDate});
+  localStorage.setItem('todoList', JSON.stringify(todoList));
   inputElement.value = '';
   dateElement.value = '';
   displayItems();
