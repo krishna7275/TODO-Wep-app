@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css">
+  <title>Todo App</title>
 </head>
 <body>
-    <h1 id="main-heading">TODO APP</h1>
-    <Script src="index.js"></Script>
-    <input id="todo-input" type="text" placeholder="Add a new task">
+  <h1 id="main-heading">Todo App</h1>
+
+  <div class="grid-container">
+    <input id="todo-input" type="text" placeholder="Enter Todo here">
     <input id="todo-date" type="date">
-    <button onclick="addTodo()">Add</button>
+    <button class='btn-todo' onclick="addTodo();">Add</button>
+  </div>
 
-    <div class="todo-container">
-        <div id="todo-ltems"></div>
+  <div class="todo-container grid-container"></div>
 
-    </div>
+  <script src="index.js"></script>
 </body>
 </html>

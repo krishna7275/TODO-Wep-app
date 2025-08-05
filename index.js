@@ -1,27 +1,38 @@
-let todolist =['hello', 'world'];
-displayItem()
+let todoList = [
+  {
+    item: 'Buy Milk',
+    dueDate: '4/10/2023'
+  },
+  {
+    item: 'Go to College',
+    dueDate: '4/10/2023'
+  }
+];
 
-function addTodo(){
-    let inputElement = document.querySelector('#todo-input');
-    let dateElement = document.querySelector('#todo-date');
-    let todoItem = inputElement.value;
-    todolist.push(todoItem);
-    inputElement.value = '';
-    displayItem();
+displayItems();
 
+function addTodo() {
+  let inputElement = document.querySelector('#todo-input');
+  let dateElement = document.querySelector('#todo-date');
+  let todoItem = inputElement.value;
+  let todoDate = dateElement.value;
+  todoList.push({item: todoItem, dueDate: todoDate});
+  inputElement.value = '';
+  dateElement.value = '';
+  displayItems();
 }
-function displayItem(){
-let containerElement = document.querySelector('.todo-container');
-let newHtml = '';
-for(let i = 0; i < todolist.length; i++){
+
+function displayItems() {
+  let containerElement = document.querySelector('.todo-container');
+  let newHtml = '';
+  for (let i = 0; i < todoList.length; i++) {
+    let {item, dueDate} = todoList[i];
     newHtml += `
-    <div>
-    <span>${todolist[i]}</span>
-    <button onclick="todolist.splice(${i},1);
-    displayItem();
-    ">Delete</button>
-    </div>
-    `
-}
-containerElement.innerHTML = newHtml;
+      <span>${item}</span>
+      <span>${dueDate}</span>
+      <button class='btn-delete' onclick="todoList.splice(${i}, 1);
+      displayItems();">Delete</button>
+    `;
+  }
+  containerElement.innerHTML = newHtml;
 }
